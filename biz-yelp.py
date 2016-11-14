@@ -1,4 +1,5 @@
 # Working with the yelp api to get info on businesses. 
+import json
 import requests
 from requests_oauthlib import OAuth1          # https://github.com/requests/requests-oauthlib
 
@@ -16,4 +17,7 @@ def search_bizna(term, location):
     }
     authorize = OAuth1(consumerkey, consumersecret, token, tokensecret)
     r = requests.get(url, auth=authorize, params=args)
-    return r 
+    return r.json()
+
+finder = search_bizna('food', 'newyork')
+print(finder)
