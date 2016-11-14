@@ -20,4 +20,5 @@ def search_bizna(term, location):
     return r.json()
 
 finder = search_bizna('food', 'newyork')
-print(finder)
+for i in finder:
+    print(i)
